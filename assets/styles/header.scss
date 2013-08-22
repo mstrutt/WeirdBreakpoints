@@ -1,0 +1,45 @@
+.header {
+	height: 44px;
+	background: black;
+	font-family: "Enriqueta",serif;
+}
+
+.primary-nav {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.sub-menu {
+	display: inline-block;
+	height: 44px;
+	overflow: hidden;
+	background: black;
+	padding: 0 .5em;
+
+	&:hover {
+		height: auto;
+	}
+
+	> h1 {
+		display: block;
+		height: 44px;
+		line-height: 44px;
+		margin: 0;
+		font-weight: normal;
+		color: white;
+	}
+
+	> a {
+		display: block;
+		height: 44px;
+		line-height: 44px;
+		color: white;
+	}
+}
+
+form {
+	display: inline-block;
+	vertical-align: top;
+	height: 44px;
+	padding: 0 .5em;
+}

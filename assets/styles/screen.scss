@@ -1,0 +1,18 @@
+.screen {
+	width: 320px;
+	height: 480px;
+
+	display: block;
+	border: 20px solid black;
+	border-radius: 15px;
+	margin: 20px auto 0;
+	padding: 0;
+
+	overflow-y: scroll;
+
+	&.loaded {
+		-webkit-transition: 1s;
+		-moz-transition: 1s;
+		transition: 1s;
+	}
+}
