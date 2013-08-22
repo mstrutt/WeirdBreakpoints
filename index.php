@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<?php
+			include('assets/php/bootstrap.php');
 			$url = (isset($_GET["url"])) ? urldecode($_GET["url"]) : "http://mstrutt.co.uk";
 			if (strpos($url, "http://") === false) $url = "http://".$url;
 		?>
