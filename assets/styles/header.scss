@@ -1,7 +1,18 @@
 .header {
-	height: 44px;
+	position: relative;
+	height: 50px;
 	background: black;
 	font-family: "Enriqueta",serif;
+	font-size: 0;
+	z-index: 2;
+
+	.header-section {
+		display: inline-block;
+		vertical-align: top;
+		width: 33.33%;
+		min-width: 250px;
+		font-size: 16px;
+	}
 }
 
 .primary-nav {
@@ -9,9 +20,10 @@
 	vertical-align: top;
 }
 
-.sub-menu {
+.device-menu {
 	display: inline-block;
-	height: 44px;
+	vertical-align: top;
+	height: 50px;
 	overflow: hidden;
 	background: black;
 	padding: 0 .5em;
@@ -22,8 +34,8 @@
 
 	> h1 {
 		display: block;
-		height: 44px;
-		line-height: 44px;
+		height: 50px;
+		line-height: 50px;
 		margin: 0;
 		font-weight: normal;
 		color: white;
@@ -31,15 +43,38 @@
 
 	> a {
 		display: block;
-		height: 44px;
-		line-height: 44px;
+		height: 30px;
+		line-height: 30px;
 		color: white;
 	}
 }
 
 form {
-	display: inline-block;
-	vertical-align: top;
-	height: 44px;
+	height: 50px;
 	padding: 0 .5em;
+	text-align: center;
+
+	> input {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		display: inline-block;
+		height: 30px;
+		padding: 5px;
+		line-height: 20px;
+		margin: 10px 5px 10px 0;
+		border: 0 none;
+		outline: 0 none;
+		box-shadow: 0 0 1px #404040;
+	}
+
+	> button {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		display: inline-block;
+		height: 30px;
+		padding: 5px;
+		margin: 10px 0;
+	}
 }

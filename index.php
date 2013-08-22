@@ -14,18 +14,23 @@
 	</head>
 	<body>
 		<header class="header">
-			<nav class="primary-nav">
-				<section class="sub-menu">
+			<section class="header-section">
+				<nav class="device-menu">
 					<h1>Common devices</h1>
 					<a href="#" data-width="320" data-height="480">iPhone</a>
 					<a href="#" data-width="768" data-height="960">iPad</a>
 					<a href="#" data-width="960" data-height="768">Classic Desktop</a>
-				</section>
-			</nav>
-			<form>
-				<input type="url" name="url" />
-				<button type="submit">Go</button>
-			</form>
+				</nav>
+				<nav class="device-menu" id="popular-sizes">
+					<h1>Popular sizes</h1>
+				</nav>
+			</section>
+			<section class="header-section">
+				<form novalidate>
+					<input type="url" name="url" value="<?php echo $url; ?>" />
+					<button type="submit">Go</button>
+				</form>
+			</section>
 		</header>
 
 		<iframe id="screen" class="screen" src="<?php echo $url; ?>"></iframe>

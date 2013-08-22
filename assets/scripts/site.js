@@ -34,7 +34,7 @@ $(function(){
 		$screen.addClass('loaded');
 	}, 100);
 
-	$('.primary-nav').on('click', 'a', function(e) {
+	$('.device-menu').on('click', 'a', function(e) {
 		e.preventDefault();
 
 		var $this = $(this),
@@ -43,5 +43,19 @@ $(function(){
 
 		$screen.width(width)
 			.height(height);
+	});
+
+	$.ajax({
+		url: "/stats.php",
+		success: function(data) {
+			var output = "",
+				dm;
+			$($.parseXML(data)).find('set').each(function(){
+				dm = this.attributes.label.nodeValue;
+				if (dm != "Other")
+					output += '<a href="#" data-width="'+dm.substring(0, dm.indexOf('x'))+'" data-height="'+dm.substring(dm.indexOf('x')+1, dm.length)+'">' + dm + '</a>';
+			})
+			$('#popular-sizes').append(output);
+		}
 	});
 });
