@@ -4,7 +4,15 @@
   background: black;
   font-family: "Enriqueta",serif;
   font-size: 0;
-  z-index: 2; }
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  background: #000000;
+  background: -moz-linear-gradient(top, black 0%, #111111 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, black), color-stop(100%, #111111));
+  background: -webkit-linear-gradient(top, black 0%, #111111 100%);
+  background: -o-linear-gradient(top, black 0%, #111111 100%);
+  background: -ms-linear-gradient(top, black 0%, #111111 100%);
+  background: linear-gradient(to bottom, black 0%, #111111 100%); }
   .header .header-section {
     display: inline-block;
     vertical-align: top;
@@ -21,10 +29,11 @@
   vertical-align: top;
   height: 50px;
   overflow: hidden;
-  background: black;
   padding: 0 .5em; }
   .device-menu:hover {
-    height: auto; }
+    height: auto;
+    background: black;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); }
   .device-menu > h1 {
     display: block;
     height: 50px;
@@ -79,6 +88,8 @@ button {
   border-radius: 15px;
   margin: 20px auto 0;
   padding: 0;
+  background: url("/assets/images/spinner.gif") no-repeat 50% 50% rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   overflow-y: scroll; }
   .screen.loaded {
     -webkit-transition: 1s;
@@ -92,10 +103,16 @@ html {
 body {
   margin: 0;
   padding: 0 0 50px;
-  font-family: 'Open Sans', sans-serif; }
+  font-family: 'Open Sans', sans-serif;
+  background: url("/assets/images/ios-linen.png") repeat 0 0 #444444;
+  color: #eee; }
 
 a {
+  color: #b4b4b4;
   text-decoration: none; }
+
+p a {
+  text-decoration: underline; }
 
 .footer {
   position: absolute;

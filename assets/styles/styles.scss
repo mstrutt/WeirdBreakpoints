@@ -9,10 +9,17 @@ body {
 	margin: 0;
 	padding: 0 0 50px;
 	font-family: 'Open Sans', sans-serif;
+	background: url('/assets/images/ios-linen.png') repeat 0 0 #444;
+	color: #eee;
 }
 
 a {
+	color: #b4b4b4;
 	text-decoration: none;
+}
+
+p a {
+	text-decoration: underline;
 }
 
 .footer {

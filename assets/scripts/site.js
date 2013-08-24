@@ -13,6 +13,7 @@ var breakpoints = {
 		self.loadStats("/stats-desktop.php", 'popular-desktop');
 	},
 	scrollWidth: 0,
+	maxScreen: 1280,
 	screen: $('#screen'),
 	getScrollBarWidth: function () {
 		var inner = document.createElement('p');
@@ -40,6 +41,7 @@ var breakpoints = {
 		return (w1 - w2);
 	},
 	loadStats: function (url, id, inclandscape) {
+		var self = this;
 		$.ajax({
 			url: url,
 			success: function(data) {
@@ -58,6 +60,8 @@ var breakpoints = {
 						portrait += '<a href="#" data-width="'+w+'" data-height="'+h+'">' + dm + '</a>';
 						if (inclandscape)
 							landscape += '<a href="#" data-width="'+h+'" data-height="'+w+'">' + h+'x'+w + '</a>';
+						if (self.maxScreen < Math.max(w, h))
+							self.maxScreen = Math.max(w, h);
 					}
 				});
 				$('#'+id).append("<section>"+portrait+"</section>"+
@@ -71,8 +75,9 @@ var breakpoints = {
 	},
 	randomBreakpoint: function (l, u) {
 		var lower = l || 320,
-			upper = u || 1280,
+			upper = u || this.maxScreen,
 			width = Math.round(Math.random() * (upper - lower)) + lower,
+			upper = u || 1280;
 			height = Math.round(Math.random() * (upper - lower)) + lower;
 
 		this.newBreakpoint(width, height);
