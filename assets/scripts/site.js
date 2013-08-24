@@ -1,51 +1,45 @@
-function getScrollBarWidth () {
-	var inner = document.createElement('p');
-	inner.style.width = "100%";
-	inner.style.height = "200px";
+var breakpoints = {
+	init: function () {
+		var self = this;
 
-	var outer = document.createElement('div');
-	outer.style.position = "absolute";
-	outer.style.top = "0px";
-	outer.style.left = "0px";
-	outer.style.visibility = "hidden";
-	outer.style.width = "200px";
-	outer.style.height = "150px";
-	outer.style.overflow = "hidden";
-	outer.appendChild (inner);
+		self.scrollWidth = self.getScrollBarWidth(),
+		self.screen.width(self.screen.width()+self.scrollWidth);
 
-	document.body.appendChild (outer);
-	var w1 = inner.offsetWidth;
-	outer.style.overflow = 'scroll';
-	var w2 = inner.offsetWidth;
-	if (w1 == w2) w2 = outer.clientWidth;
+		setTimeout(function() {
+			self.screen.addClass('loaded');
+		}, 100);
 
-	document.body.removeChild (outer);
+		self.loadStats();
+	},
+	scrollWidth: 0,
+	screen: $('#screen'),
+	getScrollBarWidth: function () {
+		var inner = document.createElement('p');
+			inner.style.width = "100%";
+			inner.style.height = "200px";
 
-	return (w1 - w2);
-};
+		var outer = document.createElement('div');
+			outer.style.position = "absolute";
+			outer.style.top = "0px";
+			outer.style.left = "0px";
+			outer.style.visibility = "hidden";
+			outer.style.width = "200px";
+			outer.style.height = "150px";
+			outer.style.overflow = "hidden";
+			outer.appendChild (inner);
 
-$(function(){
-	var scrollWidth = getScrollBarWidth(),
-		$screen = $('#screen');
+		document.body.appendChild (outer);
+		var w1 = inner.offsetWidth;
+		outer.style.overflow = 'scroll';
+		var w2 = inner.offsetWidth;
+		if (w1 == w2) w2 = outer.clientWidth;
 
-	$screen.width($screen.width()+scrollWidth);
+		document.body.removeChild (outer);
 
-	setTimeout(function() {
-		$screen.addClass('loaded');
-	}, 100);
-
-	$('.device-menu').on('click', 'a', function(e) {
-		e.preventDefault();
-
-		var $this = $(this),
-			height = parseInt($this.data('height')),
-			width = parseInt($this.data('width')) + scrollWidth;
-
-		$screen.width(width)
-			.height(height);
-	});
-
-	$.ajax({
+		return (w1 - w2);
+	},
+	loadStats: function () {
+		$.ajax({
 		url: "/stats.php",
 		success: function(data) {
 			var output = "",
@@ -57,5 +51,36 @@ $(function(){
 			})
 			$('#popular-sizes').append(output);
 		}
+	});
+	},
+	newBreakpoint: function (w, h) {
+		this.screen.width(w + this.scrollWidth)
+			.height(h);
+	},
+	randomBreakpoint: function (l, u) {
+		var lower = l || 320,
+			upper = u || 1280,
+			width = Math.round(Math.random() * (upper - lower)) + lower,
+			height = Math.round(Math.random() * (upper - lower)) + lower;
+
+		this.newBreakpoint(width, height);
+	}
+}
+
+$(function(){
+	breakpoints.init();
+
+	$('.device-menu').on('click', 'a', function(e) {
+		e.preventDefault();
+
+		var $this = $(this),
+			height = parseInt($this.data('height')),
+			width = parseInt($this.data('width'));
+
+		breakpoints.newBreakpoint(width, height);
+	});
+
+	$('#randomBreakpoint').on('click', function(){
+		breakpoints.randomBreakpoint();
 	});
 });

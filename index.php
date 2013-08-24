@@ -31,6 +31,9 @@
 					<button type="submit">Go</button>
 				</form>
 			</section>
+			<section class="header-section">
+				<button id="randomBreakpoint">Random Breakpoint</button>
+			</section>
 		</header>
 
 		<iframe id="screen" class="screen" src="<?php echo $url; ?>"></iframe>
