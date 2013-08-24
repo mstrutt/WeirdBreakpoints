@@ -9,8 +9,8 @@
 	.header-section {
 		display: inline-block;
 		vertical-align: top;
-		width: 33.33%;
-		min-width: 250px;
+		/* width: 33.33%;
+		min-width: 250px; */
 		font-size: 16px;
 	}
 }
@@ -41,7 +41,18 @@
 		color: white;
 	}
 
-	> a {
+	section {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	h2 {
+		margin: 0;
+		font-weight: normal;
+		color: white;	
+	}
+
+	a {
 		display: block;
 		height: 30px;
 		line-height: 30px;
@@ -67,14 +78,14 @@ form {
 		outline: 0 none;
 		box-shadow: 0 0 1px #404040;
 	}
+}
 
-	> button {
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
-		display: inline-block;
-		height: 30px;
-		padding: 5px;
-		margin: 10px 0;
-	}
+button {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	display: inline-block;
+	height: 30px;
+	padding: 5px;
+	margin: 10px 0;
 }

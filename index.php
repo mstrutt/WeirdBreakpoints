@@ -21,8 +21,11 @@
 					<a href="#" data-width="768" data-height="960">iPad</a>
 					<a href="#" data-width="960" data-height="768">Classic Desktop</a>
 				</nav>
-				<nav class="device-menu" id="popular-sizes">
-					<h1>Popular sizes</h1>
+				<nav class="device-menu" id="popular-device">
+					<h1>Popular device sizes</h1>
+				</nav>
+				<nav class="device-menu" id="popular-desktop">
+					<h1>Popular desktop sizes</h1>
 				</nav>
 			</section>
 			<section class="header-section">

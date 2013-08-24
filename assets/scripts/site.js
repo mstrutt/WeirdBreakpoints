@@ -9,7 +9,8 @@ var breakpoints = {
 			self.screen.addClass('loaded');
 		}, 100);
 
-		self.loadStats();
+		self.loadStats("/stats.php", 'popular-device', true);
+		self.loadStats("/stats-desktop.php", 'popular-desktop');
 	},
 	scrollWidth: 0,
 	screen: $('#screen'),
@@ -38,20 +39,31 @@ var breakpoints = {
 
 		return (w1 - w2);
 	},
-	loadStats: function () {
+	loadStats: function (url, id, inclandscape) {
 		$.ajax({
-		url: "/stats.php",
-		success: function(data) {
-			var output = "",
-				dm;
-			$($.parseXML(data)).find('set').each(function(){
-				dm = this.attributes.label.nodeValue;
-				if (dm != "Other")
-					output += '<a href="#" data-width="'+dm.substring(0, dm.indexOf('x'))+'" data-height="'+dm.substring(dm.indexOf('x')+1, dm.length)+'">' + dm + '</a>';
-			})
-			$('#popular-sizes').append(output);
-		}
-	});
+			url: url,
+			success: function(data) {
+				var portrait = "",
+					dm, w, h;
+				if (inclandscape) {
+					var landscape = "<h2>Landscape</h2>";
+						portrait = "<h2>Portrait</h2>";
+				}
+
+				$($.parseXML(data)).find('set').each(function(){
+					dm = this.attributes.label.nodeValue;
+					if (dm != "Other") {
+						w = dm.substring(0, dm.indexOf('x'));
+						h = dm.substring(dm.indexOf('x')+1, dm.length);
+						portrait += '<a href="#" data-width="'+w+'" data-height="'+h+'">' + dm + '</a>';
+						if (inclandscape)
+							landscape += '<a href="#" data-width="'+h+'" data-height="'+w+'">' + h+'x'+w + '</a>';
+					}
+				});
+				$('#'+id).append("<section>"+portrait+"</section>"+
+					((inclandscape) ? "<section>"+landscape+"</section>" : ""));
+			}
+		});
 	},
 	newBreakpoint: function (w, h) {
 		this.screen.width(w + this.scrollWidth)
