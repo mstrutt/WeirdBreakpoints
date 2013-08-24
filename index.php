@@ -27,6 +27,12 @@
 				<nav class="device-menu" id="popular-desktop">
 					<h1>Popular desktop sizes</h1>
 				</nav>
+				<nav class="device-menu">
+					<h1>Common cruxes</h1>
+					<a href="#" data-width="479" data-height="319">479 x 319</a>
+					<a href="#" data-width="767" data-height="959">767 x 959</a>
+					<a href="#" data-width="959" data-height="767">959 x 767</a>
+				</nav>
 			</section>
 			<section class="header-section">
 				<form novalidate>
