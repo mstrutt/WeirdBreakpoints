@@ -104,13 +104,21 @@ form {
 
 	.close {
 		position: absolute;
-		right: 0;
-		top: 0;
-		height: 40px;
-		width: 40px;
-		line-height: 40px;
-		text-align: center;
+		right: 5px;
+		top: 5px;
 	}
+}
+
+.icon {
+	display: block;
+	width: 40px;
+	width: 40px;
+	line-height: 40px;
+	text-align: center;
+
+	-webkit-transition: 1s;
+		   -moz-transition: 1s;
+		        transition: 1s;
 }
 
 .help {
@@ -125,20 +133,11 @@ form {
 	   -moz-transition: 1s;
 	        transition: 1s;
 
-	.icon {
+	.icon-help {
 		position: absolute;
-		top: 0;
-		left: 0;
-		display: block;
-		width: 40px;
-		width: 40px;
-		line-height: 40px;
-		text-align: center;
+		top: 5px;
+		left: 5px;
 		z-index: 5;
-
-		-webkit-transition: 1s;
-		   -moz-transition: 1s;
-		        transition: 1s;
 	}
 
 	.overlay {

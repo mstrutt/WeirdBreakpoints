@@ -59,9 +59,9 @@
 		</div>
 		
 		<div class="help">
-			<a href="#" id="help" class="icon">?</a>
+			<a href="#" id="help" class="icon icon-help">?</a>
 			<section class="overlay is-hidden">
-				<a href="#" class="close">x</a>
+				<a href="#" class="icon close">x</a>
 				<h2>Randon Breakpoint</h2>
 				<p>This is probably the best place to test truly weird breakpoints, it will scale to somewhere between mobile and large desktop. Click the button, give it a go.</p>
 				<h2>Test any site you want</h2>
