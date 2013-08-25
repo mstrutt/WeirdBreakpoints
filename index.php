@@ -11,8 +11,8 @@
 
 		<title>Weird Breakpoints</title>
 
-		<link href='http://fonts.googleapis.com/css?family=Enriqueta:400,700|Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="/assets/styles/styles.css" />
+		<link href="http://fonts.googleapis.com/css?family=Enriqueta:400,700|Open+Sans:400italic,400,700" rel="stylesheet">
+		<link href="/assets/styles/styles.css" rel="stylesheet" />
 	</head>
 	<body>
 		<header class="header">
@@ -79,8 +79,8 @@
 			<p>Made by <a href="http://mstrutt.co.uk">Michael Strutt</a> 2013</p>
 		</footer>
 
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" defer></script>
 		<script defer>window.jQuery || document.write('<script src="/assets/scripts/lib/jquery.min.js"><\/script>')</script>
-		<script src="/assets/scripts/site.js"></script>
+		<script src="/assets/scripts/site.js" defer></script>
 	</body>
 </html>
