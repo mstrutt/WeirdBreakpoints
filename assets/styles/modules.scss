@@ -95,7 +95,7 @@ form {
 
 .overlay {
 	position: absolute;
-	padding: 40px 10px 10px;
+	padding: 30px 20px 10px;
 	opacity: 1;
 
 	-webkit-transition: 1s;
@@ -115,9 +115,9 @@ form {
 
 .help {
 	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
+	top: 70px;
+	left: 20px;
+	bottom: 20px;
 	width: 360px;
 	z-index: 3;
 
@@ -145,7 +145,5 @@ form {
 		top: 0;
 		left: 0;
 		right: 0;
-		bottom: 0;
-		max-height: 400px;
 	}
 }

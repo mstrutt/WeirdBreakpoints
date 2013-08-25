@@ -56,14 +56,21 @@
 
 		<div class="page-body">
 			<iframe id="screen" class="screen" src="<?php echo $url; ?>"></iframe>
-
-			<div class="help">
+		</div>
+		
+		<div class="help">
 			<a href="#" id="help" class="icon">?</a>
 			<section class="overlay is-hidden">
 				<a href="#" class="close">x</a>
-				<p>Tip: For testing at screen sizes larger than yours, try zooming out to around 50%.</p>
+				<h2>Randon Breakpoint</h2>
+				<p>This is probably the best place to test truly weird breakpoints, it will scale to somewhere between mobile and large desktop. Click the button, give it a go.</p>
+				<h2>Test any site you want</h2>
+				<p>Simply type a URL in the box above and hit enter, you can even test <a href="/?url=localhost">localhost</a>.</p>
+				<h2>Popular sizes</h2>
+				<p>These are pulled in from the <a href="http://gs.statcounter.com">global stats at statcounter</a>, split by desktop and mobile</p>
+				<p>I've also added in lists of common devices, and common cruxes, to allow easy testing of nice and nasty conditions</p>
+				<p><em>Tip</em>: For testing at screen sizes larger than yours, try zooming out to around 50%.</p>
 			</section>
-		</div>
 		</div>
 
 		<footer class="footer">
