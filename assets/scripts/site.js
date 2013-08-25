@@ -104,12 +104,12 @@ $(function(){
 	$('body').on('click', '#help', function(e) {
 		e.preventDefault();
 		$('body').addClass('is-help');
-		$(this).siblings('.overlay').removeClass('is-closed');
+		$(this).siblings('.overlay').removeClass('is-hidden');
 	});
 
 	$('body').on('click', '.close', function(e){
 		e.preventDefault();
-		$(this).parents('.overlay').addClass('is-closed');
+		$(this).parents('.overlay').addClass('is-hidden');
 		$('body').removeClass('is-help');
 	});
 });

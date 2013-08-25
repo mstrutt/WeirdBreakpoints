@@ -95,17 +95,22 @@ form {
 
 .overlay {
 	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
 	padding: 40px 10px 10px;
-	max-height: 400px;
 	opacity: 1;
 
-	-webkit-transition: 1s, opacity .5s;
-	   -moz-transition: 1s, opacity .5s;
-	        transition: 1s, opacity .5s;
+	-webkit-transition: 1s;
+	   -moz-transition: 1s;
+	        transition: 1s;
+
+	.close {
+		position: absolute;
+		right: 0;
+		top: 0;
+		height: 40px;
+		width: 40px;
+		line-height: 40px;
+		text-align: center;
+	}
 }
 
 .help {
@@ -113,12 +118,12 @@ form {
 	top: 0;
 	left: 0;
 	bottom: 0;
-	width: 0;
+	width: 360px;
 	z-index: 3;
 
 	-webkit-transition: 1s;
-		   -moz-transition: 1s;
-		        transition: 1s;
+	   -moz-transition: 1s;
+	        transition: 1s;
 
 	.icon {
 		position: absolute;
@@ -136,18 +141,11 @@ form {
 		        transition: 1s;
 	}
 
-	.close {
-		position: absolute;
-		right: 0;
+	.overlay {
 		top: 0;
-		height: 40px;
-		width: 40px;
-		line-height: 40px;
-		text-align: center;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		max-height: 400px;
 	}
-}
-
-.is-help .help {
-	top: 0;
-	width: 360px;
 }

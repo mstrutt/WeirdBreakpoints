@@ -59,9 +59,10 @@
 
 			<div class="help">
 			<a href="#" id="help" class="icon">?</a>
-			<div class="overlay is-closed">
+			<section class="overlay is-hidden">
 				<a href="#" class="close">x</a>
-			</div>
+				<p>Tip: For testing at screen sizes larger than yours, try zooming out to around 50%.</p>
+			</section>
 		</div>
 		</div>
 
