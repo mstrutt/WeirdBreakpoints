@@ -6,7 +6,7 @@ var breakpoints = {
 		self.screen.width(self.screen.width()+self.scrollWidth);
 
 		setTimeout(function() {
-			self.screen.addClass('loaded');
+			self.screen.addClass('is-loaded');
 		}, 100);
 
 		self.loadStats("/stats.php", 'popular-device', true);
@@ -99,5 +99,17 @@ $(function(){
 
 	$('#randomBreakpoint').on('click', function(){
 		breakpoints.randomBreakpoint();
+	});
+
+	$('body').on('click', '#help', function(e) {
+		e.preventDefault();
+		$('body').addClass('is-help');
+		$(this).siblings('.overlay').removeClass('is-closed');
+	});
+
+	$('body').on('click', '.close', function(e){
+		e.preventDefault();
+		$(this).parents('.overlay').addClass('is-closed');
+		$('body').removeClass('is-help');
 	});
 });

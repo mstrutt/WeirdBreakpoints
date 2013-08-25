@@ -54,7 +54,16 @@
 			</div>
 		</header>
 
-		<iframe id="screen" class="screen" src="<?php echo $url; ?>"></iframe>
+		<div class="page-body">
+			<iframe id="screen" class="screen" src="<?php echo $url; ?>"></iframe>
+
+			<div class="help">
+			<a href="#" id="help" class="icon">?</a>
+			<div class="overlay is-closed">
+				<a href="#" class="close">x</a>
+			</div>
+		</div>
+		</div>
 
 		<footer class="footer">
 			<p>Made by <a href="http://mstrutt.co.uk">Michael Strutt</a> 2013</p>
