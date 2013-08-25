@@ -48,8 +48,8 @@ var breakpoints = {
 				var portrait = "",
 					dm, w, h;
 				if (inclandscape) {
-					var landscape = "<h2>Landscape</h2>";
-						portrait = "<h2>Portrait</h2>";
+					var landscape = "<h2>Rotated</h2>";
+						portrait = "<h2>Natural</h2>";
 				}
 
 				$($.parseXML(data)).find('set').each(function(){
@@ -57,9 +57,9 @@ var breakpoints = {
 					if (dm != "Other") {
 						w = dm.substring(0, dm.indexOf('x'));
 						h = dm.substring(dm.indexOf('x')+1, dm.length);
-						portrait += '<a href="#" data-width="'+w+'" data-height="'+h+'">' + dm + '</a>';
+						portrait += '<a href="#" data-width="'+w+'" data-height="'+h+'">' + w+' x '+h + '</a>';
 						if (inclandscape)
-							landscape += '<a href="#" data-width="'+h+'" data-height="'+w+'">' + h+'x'+w + '</a>';
+							landscape += '<a href="#" data-width="'+h+'" data-height="'+w+'">' + h+' x '+w + '</a>';
 						if (self.maxScreen < Math.max(w, h))
 							self.maxScreen = Math.max(w, h);
 					}
