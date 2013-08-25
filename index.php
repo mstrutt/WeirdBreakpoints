@@ -6,6 +6,8 @@
 			$url = (isset($_GET["url"])) ? urldecode($_GET["url"]) : "http://mstrutt.co.uk";
 			if (strpos($url, "http://") === false) $url = "http://".$url;
 		?>
+		<meta charset="utf-8" />
+		<link rel="dns-prefetch" href="//ajax.googleapis.com" />
 
 		<title>Weird Breakpoints</title>
 
@@ -78,6 +80,7 @@
 		</footer>
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script defer>window.jQuery || document.write('<script src="/assets/scripts/lib/jquery.min.js"><\/script>')</script>
 		<script src="/assets/scripts/site.js"></script>
 	</body>
 </html>
