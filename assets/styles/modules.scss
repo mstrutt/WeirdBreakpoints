@@ -12,6 +12,11 @@
 
 	overflow-y: scroll;
 
+	body,
+	html {
+		overflow-y: scroll;		
+	}
+
 	-webkit-transform: translateZ(0);
 	-moz-transform: translateZ(0);
 	transform: translateZ(0);
@@ -80,6 +85,7 @@ form {
 
 	> button {
 		font-size: 0;
+		line-height: 0;
 		padding: 0;
 
 		> span {
