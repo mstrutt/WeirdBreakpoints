@@ -1,9 +1,11 @@
 var breakpoints = {
 	init: function () {
-		var self = this;
+		var self = this,
+			screenWidth = self.screen.width();
 
 		self.scrollWidth = self.getScrollBarWidth(),
-		self.screen.width(self.screen.width()+self.scrollWidth);
+		self.screen.width(screenWidth+self.scrollWidth);
+		self.updateSizeInfo(screenWidth, self.screen.height())
 
 		setTimeout(function() {
 			self.screen.addClass('is-loaded');
@@ -69,9 +71,13 @@ var breakpoints = {
 			}
 		});
 	},
+	updateSizeInfo: function (w, h) {
+		$('#current-size').html(w+'px * '+h+'px ('+(w/16)+'em * '+(h/16)+'em)');
+	},
 	newBreakpoint: function (w, h) {
 		this.screen.width(w + this.scrollWidth)
 			.height(h);
+		this.updateSizeInfo(w, h);	
 	},
 	randomBreakpoint: function (l, u) {
 		var lower = l || 320,

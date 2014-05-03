@@ -72,3 +72,10 @@ form {
 	background: transparent;
 	border-color: transparent;
 }
+
+.size-info {
+	background: rgba(0,0,0,0.5);
+	-webkit-text-shadow: rgba(0,0,0,0.5);
+	text-shadow: rgba(0,0,0,0.5);
+	border-radius: .5em 0 0 0;
+}

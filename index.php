@@ -75,6 +75,10 @@
 			</section>
 		</div>
 
+		<div class="size-info">
+			<span id="current-size">320px X 480px</span>
+		</div>
+
 		<footer class="footer">
 			<p>Made by <a href="http://mstrutt.co.uk">Michael Strutt</a> 2013</p>
 		</footer>
