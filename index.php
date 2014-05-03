@@ -57,7 +57,7 @@
 		</header>
 
 		<div class="page-body">
-			<iframe id="screen" class="screen" src="<?php echo $url; ?>"></iframe>
+			<iframe id="screen" class="screen" src="<?php echo $url; ?>" data-width data-height></iframe>
 		</div>
 		
 		<div class="help">

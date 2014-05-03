@@ -132,7 +132,7 @@ input {
   .screen body,
   .screen html {
     overflow-y: scroll; }
-  .screen.is-loaded {
+  .screen.is-loaded:not(.instant-resize) {
     -webkit-transition: 1s linear;
     -moz-transition: 1s linear;
     transition: 1s linear; }

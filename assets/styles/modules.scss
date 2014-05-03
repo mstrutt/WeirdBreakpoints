@@ -21,7 +21,7 @@
 	-moz-transform: translateZ(0);
 	transform: translateZ(0);
 
-	&.is-loaded {
+	&.is-loaded:not(.instant-resize) {
 		-webkit-transition: 1s linear;
 		-moz-transition: 1s linear;
 		transition: 1s linear;

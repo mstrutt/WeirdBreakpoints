@@ -4,8 +4,7 @@ var breakpoints = {
 			screenWidth = self.screen.width();
 
 		self.scrollWidth = self.getScrollBarWidth(),
-		self.screen.width(screenWidth+self.scrollWidth);
-		self.updateSizeInfo(screenWidth, self.screen.height())
+		self.newBreakpoint(320, 480);
 
 		setTimeout(function() {
 			self.screen.addClass('is-loaded');
@@ -72,6 +71,8 @@ var breakpoints = {
 		});
 	},
 	updateSizeInfo: function (w, h) {
+		this.screen.data('width', w);
+		this.screen.data('height', h);
 		$('#current-size').html(w+'px * '+h+'px ('+(w/16)+'em * '+(h/16)+'em)');
 	},
 	newBreakpoint: function (w, h) {
@@ -117,5 +118,36 @@ $(function(){
 		e.preventDefault();
 		$(this).parents('.overlay').addClass('is-hidden');
 		$('body').removeClass('is-help');
+	});
+
+	var ticking = false;
+
+	function requestResize (x, y) {
+		if (!ticking) {
+			window.requestAnimationFrame(function(){
+				breakpoints.newBreakpoint(x, y)
+				ticking = false;
+			});
+			ticking = true;
+		}
+	}
+
+	$('body').on('mousedown', '#screen', function(e){
+		var pageX = e.pageX,
+			pageY = e.pageY;
+
+		breakpoints.screen.addClass('instant-resize');
+
+		$(window).on('mousemove', function(e){
+			requestResize(
+				parseInt(breakpoints.screen.data('width'), 10) + (e.pageX - pageX)*2,
+				parseInt(breakpoints.screen.data('height'), 10) + e.pageY - pageY
+			);
+			pageX = e.pageX;
+			pageY = e.pageY;
+		});
+	}).on('mouseup', function(){
+		$(window).off('mousemove');
+		breakpoints.screen.removeClass('instant-resize')
 	});
 });
