@@ -69,7 +69,7 @@
 				<h2>Test any site you want</h2>
 				<p>Simply type a URL in the box above and hit enter, you can even test <a href="/?url=localhost">localhost</a>.</p>
 				<h2>Popular sizes</h2>
-				<p>These are pulled in from the <a href="http://gs.statcounter.com">global stats at statcounter</a>, split by desktop and mobile</p>
+				<p>These are pulled in from the <a href="http://gs.statcounter.com">global stats at statcounter</a>, split by desktop and mobile/tablet</p>
 				<p>I've also added in lists of common devices, and common cruxes, to allow easy testing of nice and nasty conditions</p>
 				<p><em>Tip</em>: For testing at screen sizes larger than yours, try zooming out to around 50%.</p>
 			</section>
@@ -80,7 +80,7 @@
 		</div>
 
 		<footer class="footer">
-			<p>Made by <a href="http://mstrutt.co.uk">Michael Strutt</a> 2013</p>
+			<p>Made by <a href="http://mstrutt.co.uk">Michael Strutt</a> &copy; 2013 - <?php echo date('Y') ?></p>
 		</footer>
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" defer></script>
