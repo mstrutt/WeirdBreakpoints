@@ -1,0 +1,27 @@
+{
+  "name": "WeirdBreakpoints",
+  "version": "0.0.1",
+  "description": "Building a web-app for testing a responsive site with breakpoints you might not have tried",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mstrutt/WeirdBreakpoints.git"
+  },
+  "author": "Michael Strutt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mstrutt/WeirdBreakpoints/issues"
+  },
+  "homepage": "https://github.com/mstrutt/WeirdBreakpoints",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-watch": "~0.6.1",
+    "time-grunt": "~1.1.0",
+    "load-grunt-tasks": "~3.1.0",
+    "grunt-autoprefixer": "~2.2.0",
+    "grunt-sass": "~0.18.1"
+  }
+}
