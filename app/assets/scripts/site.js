@@ -49,6 +49,12 @@ var breakpoints = {
 	},
 	loadStats: function(url, id, inclandscape) {
 		var self = this;
+
+		function hideMenuItem (error) {
+			$('#' + id).parent().hide();
+			console.warn('Error processing ' + url, error);
+		}
+
 		$.ajax({
 			url: url,
 			success: function(data) {
@@ -60,23 +66,27 @@ var breakpoints = {
 					portrait = "<h2>Natural</h2>";
 				}
 
-				$($.parseXML(data)).find('set').each(function() {
-					dm = this.attributes.label.nodeValue;
-					if (dm !== "Other") {
-						w = dm.substring(0, dm.indexOf('x'));
-						h = dm.substring(dm.indexOf('x') + 1, dm.length);
-						portrait += '<a href="#" data-width="' + w + '" data-height="' + h + '">' + w + ' x ' + h + '</a>';
-						if (inclandscape) {
-							landscape += '<a href="#" data-width="' + h + '" data-height="' + w + '">' + h + ' x ' + w + '</a>';
+				try {
+					$($.parseXML(data)).find('set').each(function() {
+						dm = this.attributes.label.nodeValue;
+						if (dm !== "Other") {
+							w = dm.substring(0, dm.indexOf('x'));
+							h = dm.substring(dm.indexOf('x') + 1, dm.length);
+							portrait += '<a href="#" data-width="' + w + '" data-height="' + h + '">' + w + ' x ' + h + '</a>';
+							if (inclandscape) {
+								landscape += '<a href="#" data-width="' + h + '" data-height="' + w + '">' + h + ' x ' + w + '</a>';
+							}
+							if (self.maxScreen < Math.max(w, h)) {
+								self.maxScreen = Math.max(w, h);
+							}
 						}
-						if (self.maxScreen < Math.max(w, h)) {
-							self.maxScreen = Math.max(w, h);
-						}
-					}
-				});
-				$('#' + id).append("<section>" + portrait + "</section>" +
-					((inclandscape) ? "<section>" + landscape + "</section>" : ""));
-			}
+					});
+					$('#' + id).append("<section>" + portrait + "</section>" + ((inclandscape) ? "<section>" + landscape + "</section>" : ""));
+				} catch (error) {
+					hideMenuItem(error);
+				}
+			},
+			error: hideMenuItem
 		});
 	},
 	updateSizeInfo: function(w, h) {
