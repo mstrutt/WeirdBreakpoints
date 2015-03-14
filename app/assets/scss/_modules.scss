@@ -17,13 +17,9 @@
 		overflow-y: scroll;		
 	}
 
-	-webkit-transform: translateZ(0);
-	-moz-transform: translateZ(0);
 	transform: translateZ(0);
 
 	&.is-loaded {
-		-webkit-transition: 1s linear;
-		-moz-transition: 1s linear;
 		transition: 1s linear;
 	}
 }
@@ -44,7 +40,6 @@
 
 
 	.device-menu {
-		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
 		position: absolute;
 		overflow: hidden;
@@ -103,10 +98,7 @@ form {
 	position: absolute;
 	padding: 30px 20px 10px;
 	opacity: 1;
-
-	-webkit-transition: 1s;
-	   -moz-transition: 1s;
-	        transition: 1s;
+	transition: 1s;
 
 	.close {
 		position: absolute;
@@ -121,10 +113,7 @@ form {
 	width: 40px;
 	line-height: 40px;
 	text-align: center;
-
-	-webkit-transition: 1s;
-		   -moz-transition: 1s;
-		        transition: 1s;
+	transition: 1s;
 }
 
 .help {
@@ -134,10 +123,7 @@ form {
 	bottom: 20px;
 	width: 360px;
 	z-index: 3;
-
-	-webkit-transition: 1s;
-	   -moz-transition: 1s;
-	        transition: 1s;
+	transition: 1s;
 
 	.icon-help {
 		position: absolute;

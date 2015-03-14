@@ -12,7 +12,7 @@
 		<title>Weird Breakpoints</title>
 
 		<link href="http://fonts.googleapis.com/css?family=Enriqueta:400,700|Open+Sans:400italic,400,700" rel="stylesheet">
-		<link href="/assets/styles/styles.css" rel="stylesheet" />
+		<link href="/assets/css/app.css" rel="stylesheet" />
 	</head>
 	<body>
 		<header class="header">

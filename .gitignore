@@ -1,1 +1,4 @@
-**.sass-cache
+node_modules
+app/assets/css
+stats.xml
+stats-desktop.xml
