@@ -4,7 +4,7 @@
   "description": "Building a web-app for testing a responsive site with breakpoints you might not have tried",
   "main": "index.php",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,12 @@
     "time-grunt": "~1.1.0",
     "load-grunt-tasks": "~3.1.0",
     "grunt-autoprefixer": "~2.2.0",
-    "grunt-sass": "~0.18.1"
+    "grunt-sass": "~0.18.1",
+    "grunt-eslint": "~8.0.0"
+  },
+  "eslintConfig": {
+    "globals": {
+      "$": true
+    }
   }
 }

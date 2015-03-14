@@ -33,6 +33,14 @@ module.exports = function (grunt) {
 			}
 		},
 
+		eslint: {
+			app: {
+				src: [
+					'<%= config.app %>/assets/scripts/*.js'
+				]
+			}
+		},
+
 		watch: {
 			css: {
 				files: ['<%= config.app %>/assets/scss/{,*/}*.scss'],
@@ -44,4 +52,6 @@ module.exports = function (grunt) {
 	grunt.registerTask('default', ['build', 'watch']);
 
 	grunt.registerTask('build', ['sass', 'autoprefixer']);
+
+	grunt.registerTask('test', ['eslint']);
 };
