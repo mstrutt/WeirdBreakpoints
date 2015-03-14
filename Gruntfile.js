@@ -15,6 +15,10 @@ module.exports = function (grunt) {
 
 		config: config,
 
+		clean: {
+			xml: ['stats.xml', 'stats-desktop.xml']
+		},
+
 		sass: {
 			build: {
 				files: {
@@ -59,5 +63,22 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('build', ['sass', 'autoprefixer']);
 
-	grunt.registerTask('test', ['eslint']);
+	grunt.registerTask('validate-xml', 'Curls and validates stats.xml, optionally pass in domain', function(target) {
+		if (!target) {
+			target = 'localhost';
+		}
+
+		target = 'http://' + target;
+
+		curl = {
+			'stats.xml': target + '/stats.php',
+			'stats-desktop.xml': target + '/stats-desktop.php'
+		};
+
+		grunt.config('curl', curl);
+
+		grunt.task.run(['clean', 'curl', 'xml_validator']);
+	});
+
+	grunt.registerTask('test', ['eslint', 'validate-xml']);
 };
