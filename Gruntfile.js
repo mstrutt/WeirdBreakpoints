@@ -65,7 +65,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('validate-xml', 'Curls and validates stats.xml, optionally pass in domain', function(target) {
 		if (!target) {
-			target = 'localhost';
+			target = '127.0.0.1:8000';
 		}
 
 		target = 'http://' + target;
