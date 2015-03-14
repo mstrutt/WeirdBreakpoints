@@ -41,6 +41,12 @@ module.exports = function (grunt) {
 			}
 		},
 
+		xml_validator: {
+			stats: {
+				src: [ 'stats.xml', 'stats-desktop.xml' ]
+			},
+		},
+
 		watch: {
 			css: {
 				files: ['<%= config.app %>/assets/scss/{,*/}*.scss'],

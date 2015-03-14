@@ -23,7 +23,8 @@
     "load-grunt-tasks": "~3.1.0",
     "grunt-autoprefixer": "~2.2.0",
     "grunt-sass": "~0.18.1",
-    "grunt-eslint": "~8.0.0"
+    "grunt-eslint": "~8.0.0",
+    "grunt-xml-validator": "~1.1.1"
   },
   "eslintConfig": {
     "globals": {
