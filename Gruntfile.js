@@ -7,7 +7,8 @@ module.exports = function (grunt) {
 
 	// Configurable paths
 	var config = {
-		app: 'app'
+		app: 'app',
+		build: 'build'
 	};
 
 	grunt.initConfig({
@@ -16,7 +17,20 @@ module.exports = function (grunt) {
 		config: config,
 
 		clean: {
-			xml: ['stats.xml', 'stats-desktop.xml']
+			xml: ['stats.xml', 'stats-desktop.xml'],
+			build: ['build']
+		},
+
+		copy: {
+			build: {
+				expand: true,
+				cwd: '<%= config.app %>',
+				src: [
+					'{,*}.*',
+					'assets/php/*'
+				],
+				dest: '<%= config.build %>'
+			}
 		},
 
 		sass: {
@@ -35,6 +49,38 @@ module.exports = function (grunt) {
 				src: '<%= config.app %>/assets/css/app.css',
 				dest: '<%= config.app %>/assets/css/app.css'
 			}
+		},
+
+		imagemin: {
+			build: {
+				files: [{
+					expand: true,
+					cwd: '<%= config.app %>/assets/images',
+					src: ['*.{png,jpg,gif}'],
+					dest: '<%= config.build %>/assets/images'
+				}]
+			}
+		},
+
+		useminPrepare: {
+			html: '<%= config.app %>/index.php',
+			options: {
+				flow: {
+					html: {
+						steps: {
+							'css': ['cssmin'],
+							'js': ['uglifyjs']
+						},
+						post: {}
+					}
+				},
+				root: '<%= config.app %>',
+				dest: '<%= config.build %>'
+			}
+		},
+
+		usemin: {
+			html: '<%= config.build %>/index.php'
 		},
 
 		eslint: {
@@ -59,9 +105,23 @@ module.exports = function (grunt) {
 		}
 	});
 
-	grunt.registerTask('default', ['build', 'watch']);
+	grunt.registerTask('default', ['build:css', 'watch']);
 
-	grunt.registerTask('build', ['sass', 'autoprefixer']);
+	grunt.registerTask('build', 'Build all or part of the app', function(target) {
+		var tasks = {
+			css: ['sass', 'autoprefixer'],
+			minify: ['useminPrepare', 'cssmin', 'uglify', 'usemin'],
+			default: [
+				'clean:build',
+				'copy:build',
+				'build:css',
+				'build:minify',
+				'imagemin:build'
+			]
+		};
+
+		grunt.task.run(tasks[target] || tasks['default']);
+	});
 
 	grunt.registerTask('validate-xml', 'Curls and validates stats.xml, optionally pass in domain', function(target) {
 		if (!target) {
@@ -77,7 +137,7 @@ module.exports = function (grunt) {
 
 		grunt.config('curl', curl);
 
-		grunt.task.run(['clean', 'curl', 'xml_validator']);
+		grunt.task.run(['clean:xml', 'curl', 'xml_validator']);
 	});
 
 	grunt.registerTask('test', ['eslint', 'validate-xml']);
