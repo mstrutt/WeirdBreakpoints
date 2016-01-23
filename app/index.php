@@ -41,11 +41,11 @@
 				</section>
 				<section class="header-section">
 					<h2 class="menu-head">Popular device sizes</h2>
-					<nav class="device-menu" id="popular-device"></nav>
+					<nav class="device-menu" id="popular-device"><img src="/assets/images/ajax-loader.gif" alt="Loading sizes" class="ajax-loader" /></nav>
 				</section>
 				<section class="header-section">
 					<h2 class="menu-head">Popular desktop sizes</h2>
-					<nav class="device-menu" id="popular-desktop"></nav>
+					<nav class="device-menu" id="popular-desktop"><img src="/assets/images/ajax-loader.gif" alt="Loading sizes" class="ajax-loader" /></nav>
 				</section>
 				<section class="header-section">
 					<h2 class="menu-head">Common cruxes</h2>
