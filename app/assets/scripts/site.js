@@ -60,6 +60,7 @@ var breakpoints = {
 			success: function(data) {
 				var portrait = "",
 					landscape = "",
+					$menu,
 					dm, w, h;
 				if (inclandscape) {
 					landscape = "<h2>Rotated</h2>";
@@ -81,7 +82,10 @@ var breakpoints = {
 							}
 						}
 					});
-					$('#' + id).append("<section>" + portrait + "</section>" + ((inclandscape) ? "<section>" + landscape + "</section>" : ""));
+					$menu = $('#' + id);
+					$menu.append("<section>" + portrait + "</section>" + ((inclandscape) ? "<section>" + landscape + "</section>" : ""));
+					$menu.find('.ajax-loader').remove();
+
 				} catch (error) {
 					hideMenuItem(error);
 				}
